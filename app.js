@@ -3,7 +3,7 @@ import express from 'express';
 const app = express();
 
 app.get('/', (req, res) => {
-  const msg = 'Works on my machine.';
+  const msg = 'Works on my machine. Staging';
   res.send(msg);
 });
 
