@@ -1,3 +1,4 @@
+const { sql } = require('drizzle-orm');
 const express = require('express');
 const { join } = require('node:path');
 const validator = require('validator');
@@ -16,11 +17,20 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/health', async (req, res) => {
-  res.status(503).json({
-    status: 'error',
-    message:
-      'The garden gnomes have invaded our sistems and have broken everything!',
-  });
+  try {
+    await getDb().execute(sql`select 1`);
+
+    res.status(200).json({
+      status: 'ok',
+    });
+  } catch (err) {
+    console.error('Health check failed:', err);
+
+    res.status(503).json({
+      status: 'error',
+      message: 'Database unavailable',
+    });
+  }
 });
 
 app.post('/api/subscribers', async (req, res) => {
