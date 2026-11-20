@@ -1,0 +1,1 @@
+UPDATE "subscribers" SET "email_address" = "email" WHERE "email_address" IS NULL;
