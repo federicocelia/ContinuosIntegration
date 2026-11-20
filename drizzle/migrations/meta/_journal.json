@@ -29,6 +29,13 @@
       "when": 1795176645023,
       "tag": "0003_famous_big_bertha",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1795177901413,
+      "tag": "0004_third_molecule_man",
+      "breakpoints": true
     }
   ]
 }
